@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+      <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-badge">LG</div>
+        <span>NAAM</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="#pricing">Contact</a></li>
+        <li><a href="#docs">About</a></li>
+      </ul>
+
+      <button class="nav-cta">Sign Up</button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav-menu-mobile" id="navMenuMobile">
+      <div class="nav-menu-inner">
+        <ul class="nav-links-mobile">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#docs">Docs</a></li>
+        </ul>
+        <button class="nav-cta-mobile">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+   <script>
+    const navToggle = document.getElementById("navToggle");
+    const navMenuMobile = document.getElementById("navMenuMobile");
+
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("active");
+      navMenuMobile.classList.toggle("open");
+
+    });
+  </script> 
+
+
+
+        <h1></h1>
+        
+        <main class="hero">
+          <!--<h1>hallow</h1>-->
+          <h1>Welkom bij {Naam}</h1>
+          <button class="collection-toggle"id="test">Hello</button>
+
+          <script>
+            test.addEventListener("click", () => {
+
+              test.classList.toggle("active");
+             //window.location.href = "register.html"
+             window.location.href = "collection.html"
+
+            });
+          </script>
+        </main>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
