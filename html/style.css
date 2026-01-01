@@ -38,6 +38,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #e5e7eb;
+      text-decoration: none;
     }
 
     .nav-logo-badge {
@@ -439,3 +440,121 @@ body{
 .bg2{ background-image: url("img/item2.jpg"); }
 .bg3{ background-image: url("img/item3.jpg"); }
 .bg4{ background-image: url("img/item4.jpg"); }
+
+
+
+/* NAV CART BUTTON */
+.nav-cart {
+  position: relative;
+  border: none;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #22c55e;
+  color: #052e16;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+/* OVERLAY */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 60;
+}
+
+.cart-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* DRAWER */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(360px, 92vw);
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.25);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  z-index: 61;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+/* CART CONTENT */
+.cart-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-header h3 {
+  color: rgba(15, 23, 42, 0.95);
+}
+
+.cart-header button {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#cartItems {
+  list-style: none;
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#cartItems li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+#cartItems button {
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-footer {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .nav-cart {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
