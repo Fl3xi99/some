@@ -74,30 +74,26 @@
         
         <main class="hero">
           <!--<h1>hallow</h1>-->
-          <h1>Welkom bij {Naam}</h1>
-          <button class="collection-toggle"id="test">Regristeer</button>
+          <h1>Collection</h1>
 
-          <script>
-            test.addEventListener("click", () => {
+          <div class="container">
+  <a href="item1.html" class="card bg1">
+    <span class="title">Item 1</span>
+  </a>
 
-              test.classList.toggle("active");
-             //window.location.href = "register.html"
-             window.location.href = "register.html"
+  <a href="item2.html" class="card bg2">
+    <span class="title">Item 2</span>
+  </a>
 
-            });
+  <a href="item3.html" class="card bg3">
+    <span class="title">Item 3</span>
+  </a>
 
+  <a href="item4.html" class="card bg4">
+    <span class="title">Item 4</span>
+  </a>
+</div>
 
-            const app = initializeApp(firebaseConfig);
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            const submit = document.getElementById('submit');
-            submit.addEventListener("click", function (event) {
-              event.preventDefault();
-              alert('5')
-            });
-          </script>
         </main>
     </main>
     <script src="index.js"></script>
