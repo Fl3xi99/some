@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
-  <body>
-    <main>
+  <body style="margin:0; min-height:100vh;">
+    
       <nav class="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
@@ -96,10 +96,30 @@
 
 
         <h1></h1>
+        <section class="hero" style="min-height: calc(100vh - 80px);
+  width: 100%;
+  padding: 0 1.25rem;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.55)
+    ),
+    url('/images/albert-stoynov-gUSN0c1Big8-unsplash.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+">
+
+
         
-        <main class="hero">
+        
+        
           <!--<h1>hallow</h1>-->
           <h1>Welkom bij Mattera</h1>
+
+          <h2>3D Prints</h2>
           
           <!--<button class="collection-toggle"id="test">Regristeer</button>-->
 
@@ -124,8 +144,9 @@
               alert('5')
             });
           </script>
-        </main>
-    </main>
+        
+        </section>
+    
     <script src="cart.js"></script>
   </body>
 </html>
