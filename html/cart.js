@@ -1,62 +1,41 @@
-
+// LOAD CART
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const cartBtn = document.getElementById("cartBtn");
-const cartDrawer = document.getElementById("cartDrawer");
-const cartOverlay = document.getElementById("cartOverlay");
-const closeCart = document.getElementById("closeCart");
+// ELEMENTS
+const cartBtnDesktop = document.getElementById("cartBtnDesktop");
+const cartBtnMobile = document.getElementById("cartBtnMobile");
 
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
-const cartCount = document.getElementById("cartCount");
+const cartCountDesktop = document.getElementById("cartCountDesktop");
+const cartCountMobile = document.getElementById("cartCountMobile");
 
-cartBtn.addEventListener("click", openCart);
-closeCart.addEventListener("click", closeCartMenu);
-cartOverlay.addEventListener("click", closeCartMenu);
-
-function openCart() {
-  cartDrawer.classList.add("open");
-  cartOverlay.classList.add("show");
+// UPDATE COUNT (SAFE)
+function updateCartCount() {
+  if (cartCountDesktop) cartCountDesktop.textContent = cart.length;
+  if (cartCountMobile) cartCountMobile.textContent = cart.length;
 }
 
-function closeCartMenu() {
-  cartDrawer.classList.remove("open");
-  cartOverlay.classList.remove("show");
-}
-
+// ADD TO CART
 function addToCart(name, price) {
   cart.push({ name, price });
-  saveCart();
-  renderCart();
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  saveCart();
-  renderCart();
-}
-
-function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  console.log("Added to cart:", name);
 }
 
-function renderCart() {
-  cartItems.innerHTML = "";
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    total += item.price;
-    const li = document.createElement("li");
-    li.innerHTML = `
-      ${item.name} (€${item.price.toFixed(2)})
-      <button onclick="removeFromCart(${index})">✕</button>
-    `;
-    cartItems.appendChild(li);
+// OPTIONAL: cart button click (debug / later cart page)
+if (cartBtnDesktop) {
+  cartBtnDesktop.addEventListener("click", () => {
+    // alert(`Items in winkelmand: ${cart.length}`);
+    window.location.href = "cart.html";
   });
-
-  cartTotal.textContent = total.toFixed(2);
-  cartCount.textContent = cart.length;
 }
 
-renderCart();
+if (cartBtnMobile) {
+  cartBtnMobile.addEventListener("click", () => {
+    // alert(`Items in winkelmand: ${cart.length}`);
+    window.location.href = "cart.html";
+  });
+}
 
+// INIT
+updateCartCount();
