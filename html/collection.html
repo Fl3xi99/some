@@ -24,9 +24,9 @@
         <li><a href="#docs">About</a></li>
       </ul>
 
-      <button class="nav-cart" id="cartBtn" aria-label="Open winkelmand">
+      <button class="nav-cart" id="cartBtnDesktop" aria-label="Open winkelmand">
   🛒
-  <span class="cart-count" id="cartCount">0</span>
+  <span class="cart-count" id="cartCountDesktop">0</span>
 </button>
 
 
@@ -48,9 +48,9 @@
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#docs">Docs</a></li>
         </ul>
-        <button class="nav-cart-mobile" id="cartBtn" aria-label="Open winkelmand">
+        <button class="nav-cart-mobile" id="cartBtnMobile" aria-label="Open winkelmand">
   🛒
-  <span class="cart-count" id="cartCount">0</span>
+  <span class="cart-count" id="cartCountMobile">0</span>
 </button>
 
         <!--<button class="nav-cta-mobile" id="buttonbar">Regristreer</button>-->
@@ -60,19 +60,7 @@
 
   <div class="cart-overlay" id="cartOverlay"></div>
 
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-header">
-    <h3>Winkelmand</h3>
-    <button id="closeCart">✕</button>
-  </div>
 
-  <ul id="cartItems"></ul>
-
-  <div class="cart-footer">
-    <p><strong>Totaal: €<span id="cartTotal">0.00</span></strong></p>
-    <button class="nav-cta">Afrekenen</button>
-  </div>
-</aside>
 
 
    <script>
@@ -102,7 +90,17 @@
 
         <h1></h1>
         
-        <main class="hero">
+        <section class="hero" style="
+        min-height: calc(100vh - 80px);
+        width: 100%;
+        padding: 0 1.25rem;
+        background:
+          linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+          url('/images/albert-stoynov-gUSN0c1Big8-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      ">
           <!--<h1>hallow</h1>-->
           <h1>Collection</h1>
 
@@ -126,7 +124,7 @@
   
 </div>
 
-        </main>
+        </section>
     </main>
     <script src="cart.js"></script>
   </body>
