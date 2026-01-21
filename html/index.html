@@ -15,9 +15,15 @@
 
   </head>
 
-  <body style="margin:0; min-height:100vh;">
+  <body style="margin:0; min-height:100vh;" >
+
+    <div id="loading-screen">
+  <div class="loader"></div>
+  <p>Loading...</p>
+</div>
 
     <!-- ================= NAVBAR ================= -->
+     <div id="main-content" class="hidden">
     <nav class="navbar">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
@@ -119,6 +125,22 @@
 
 
     <!-- Cart logic -->
-    <script src="cart.js"></script>
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loading-screen");
+    const content = document.getElementById("main-content");
+
+    if (!loader || !content) return;
+
+    // Force loader to stay for 30 seconds
+    setTimeout(() => {
+      loader.style.display = "none";     // ❌ no fade
+      content.classList.remove("hidden"); // show content
+    }, 3500); // ⏱️ 30 seconds
+  });
+</script>
+
+
+    </div>
   </body>
 </html>
