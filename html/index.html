@@ -33,7 +33,7 @@
 
 
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="collection.html">Collection</a></li>
           <li><a href="#pricing">Contact</a></li>
           <li><a href="#about">About</a></li>
@@ -132,11 +132,23 @@
 
     if (!loader || !content) return;
 
-    // Force loader to stay for 30 seconds
+    // Check if loader already shown
+    const hasLoaded = sessionStorage.getItem("loaderShown");
+
+    if (hasLoaded) {
+      // Skip loader instantly
+      loader.style.display = "none";
+      content.classList.remove("hidden");
+      return;
+    }
+
+    // First visit → show loader
+    sessionStorage.setItem("loaderShown", "true");
+
     setTimeout(() => {
-      loader.style.display = "none";     // ❌ no fade
-      content.classList.remove("hidden"); // show content
-    }, 3500); // ⏱️ 30 seconds
+      loader.style.display = "none";
+      content.classList.remove("hidden");
+    }, 3000); // your 30s duration
   });
 </script>
 
