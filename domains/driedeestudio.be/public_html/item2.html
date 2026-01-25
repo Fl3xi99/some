@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DrieDee</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="DrieDee" />
+<link rel="manifest" href="images/site.webmanifest" />
+  </head>
+
+  <body style="margin:0; min-height:100vh;">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+  <img src="images/20260112_2139_Image Generation_remix_01kesyvrf8ef288bhjep12sm6c(2).png" alt="Mattera logo" class="nav-logo-img">
+  <span class="nav-logo-text"></span>
+</a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="#pricing">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+
+        <!-- DESKTOP CART -->
+        <button
+          class="nav-cart"
+          id="cartBtnDesktop"
+          aria-label="Open winkelmand"
+        >
+          🛒
+          <span class="cart-count" id="cartCountDesktop">0</span>
+        </button>
+
+        <!-- MOBILE TOGGLE -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="nav-menu-mobile" id="navMenuMobile">
+        <div class="nav-menu-inner">
+          <ul class="nav-links-mobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collection.html">Collectie</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+
+          <!-- MOBILE CART -->
+          <button
+            class="nav-cart-mobile"
+            id="cartBtnMobile"
+            aria-label="Open winkelmand"
+          >
+            🛒
+            <span class="cart-count" id="cartCountMobile">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="item-hero">
+  <div class="item-hero-inner">
+
+    <!-- PRODUCT IMAGE -->
+    <div class="item-image slider">
+
+  <button class="slider-btn prev">‹</button>
+
+  <div class="slider-track">
+    <!-- ADD / REMOVE IMAGES HERE -->
+    <img src="/images/WhatsApp Image 2026-01-07 at 16.56.28 (1).jpeg" alt="">
+    <img src="/images/WhatsApp Image 2026-01-07 at 16.56.28 (0).jpeg" alt="">
+    <img src="/images/WhatsApp Image 2026-01-07 at 16.56.28 (2).jpeg" alt="">
+    <img src="/images/WhatsApp Image 2026-01-07 at 16.56.28 (3).jpeg" alt="">
+
+  </div>
+
+  <button class="slider-btn next">›</button>
+
+</div>
+
+
+    <!-- PRODUCT INFO -->
+    <div class="item-info">
+      <span class="item-badge">3D PRINT</span>
+
+      <h1 class="item-title">Custom 3D Print</h1>
+      <p class="item-desc">
+        High-quality custom 3D printed object. Perfect for decoration,
+        prototypes, or gifts. Printed with durable materials and clean
+        finishes.
+      </p>
+
+      <div class="item-price">€9,99</div>
+
+      <button
+        class="item-cart-btn btn-wave"
+        onclick="addToCart('3D Print', 9.99)"
+      >
+        🛒 Toevoegen aan winkelmand
+      </button>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <!-- Mobile nav toggle -->
+    <script>
+  const navToggle = document.getElementById("navToggle");
+  const navMenuMobile = document.getElementById("navMenuMobile");
+
+  if (navToggle && navMenuMobile) {
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("active");   // 👈 animatie blijft
+      navMenuMobile.classList.toggle("open"); // menu open/dicht
+    });
+  }
+</script>
+
+<script>
+  const slider = document.querySelector(".slider");
+  const track = slider.querySelector(".slider-track");
+  const images = track.querySelectorAll("img");
+  const prevBtn = slider.querySelector(".prev");
+  const nextBtn = slider.querySelector(".next");
+
+  let index = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    updateSlider();
+  });
+</script>
+
+
+
+    <!-- Cart logic -->
+    <script src="cart.js"></script>
+  </body>
+</html>

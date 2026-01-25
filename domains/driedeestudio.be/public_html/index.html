@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DrieDee</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="DrieDee" />
+<link rel="manifest" href="images/site.webmanifest" />
+
+  </head>
+
+  <body style="margin:0; min-height:100vh;" >
+
+    <div id="loading-screen">
+  <div class="loader"></div>
+  <p>Loading...</p>
+</div>
+
+    <!-- ================= NAVBAR ================= -->
+     <div id="main-content" class="hidden">
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+  <img src="images/20260112_2139_Image Generation_remix_01kesyvrf8ef288bhjep12sm6c(2).png" alt="Mattera logo" class="nav-logo-img">
+  <span class="nav-logo-text"></span>
+</a>
+
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="collection.html">Collection</a></li>
+          <li><a href="#pricing">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+
+        <!-- DESKTOP CART -->
+        <button
+          class="nav-cart"
+          id="cartBtnDesktop"
+          aria-label="Open winkelmand"
+        >
+          🛒
+          <span class="cart-count" id="cartCountDesktop">0</span>
+        </button>
+
+        <!-- MOBILE TOGGLE -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="nav-menu-mobile" id="navMenuMobile">
+        <div class="nav-menu-inner">
+          <ul class="nav-links-mobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collection.html">Collectie</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+
+          <!-- MOBILE CART -->
+          <button
+            class="nav-cart-mobile"
+            id="cartBtnMobile"
+            aria-label="Open winkelmand"
+          >
+            🛒
+            <span class="cart-count" id="cartCountMobile">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section
+      class="hero hero2"
+      style="
+        min-height: calc(100vh - 80px);
+        width: 100%;
+        padding: 0 1.25rem;
+        background:
+          linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+          /* url('/images/albert-stoynov-gUSN0c1Big8-unsplash.jpg'); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <h1>Welkom bij DrieDee</h1>
+      <h2>3D Prints</h2>
+
+      <!-- ADD TO CART BUTTON -->
+      <!--<button onclick="addToCart('3D Print', 9.99)">
+        Toevoegen aan winkelmand
+      </button>-->
+    </section>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <!-- Mobile nav toggle -->
+    <script>
+  const navToggle = document.getElementById("navToggle");
+  const navMenuMobile = document.getElementById("navMenuMobile");
+
+  if (navToggle && navMenuMobile) {
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("active");   // 👈 animatie blijft
+      navMenuMobile.classList.toggle("open"); // menu open/dicht
+    });
+  }
+</script>
+
+
+    <!-- Cart logic -->
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loading-screen");
+    const content = document.getElementById("main-content");
+
+    if (!loader || !content) return;
+
+    // Check if loader already shown
+    const hasLoaded = sessionStorage.getItem("loaderShown");
+
+    if (hasLoaded) {
+      // Skip loader instantly
+      loader.style.display = "none";
+      content.classList.remove("hidden");
+      return;
+    }
+
+    // First visit → show loader
+    sessionStorage.setItem("loaderShown", "true");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.classList.remove("hidden");
+    }, 3000); // your 30s duration
+  });
+</script>
+
+
+    </div>
+  </body>
+</html>
