@@ -4,6 +4,25 @@
 const cartItemsEl = document.getElementById("cartItems");
 const cartTotalEl = document.getElementById("cartTotal");
 
+function renderColorDot(colorHex) {
+  // Twee vaste kleuren → split circle
+  if (Array.isArray(colorHex) && colorHex.length === 2) {
+    return `
+      <span class="cart-color-dot split"
+        style="--c1:${colorHex[0]}; --c2:${colorHex[1]};">
+      </span>
+    `;
+  }
+
+  // Eén kleur → normale circle
+  return `
+    <span class="cart-color-dot"
+      style="background:${colorHex};">
+    </span>
+  `;
+}
+
+
 function renderCart() {
   cartItemsEl.innerHTML = "";
   let total = 0;
@@ -17,20 +36,29 @@ function renderCart() {
   }
 
   cart.forEach((item, index) => {
-    total += item.price;
+  total += item.price;
 
-    const li = document.createElement("li");
-    li.className = "cart-item";
-    li.innerHTML = `
-      <span>${item.name}</span>
-      <span>
-        €${item.price.toFixed(2)}
-        <button onclick="removeItem(${index})">✕</button>
+  const li = document.createElement("li");
+  li.className = "cart-item";
+  li.innerHTML = `
+    <span class="cart-item-title">
+      ${item.name}
+      <span class="cart-color-wrap">
+      ${renderColorDot(item.colorHex)}
+
+        ${item.colorName}
       </span>
-    `;
+    </span>
 
-    cartItemsEl.appendChild(li);
-  });
+    <span>
+      €${item.price.toFixed(2)}
+      <button onclick="removeItem(${index})">✕</button>
+    </span>
+  `;
+
+  cartItemsEl.appendChild(li);
+});
+
 
   cartTotalEl.textContent = total.toFixed(2);
 }

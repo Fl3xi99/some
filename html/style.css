@@ -505,13 +505,22 @@ body {
   font-weight: 600;
 }
 
+.cost {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 /* Background images */
 .bg1 {
   
-  background-image: url("images/WhatsApp\ Image\ 2026-01-07\ at\ 16.56.28\ \(1\).jpeg");
+  background-image: url("images/Hug2.jpeg");
 }
 .bg2 {
-  background-image: url("img/item2.jpg");
+  background-image: url("images/Polka1.jpeg");
 }
 .bg3 {
   background-image: url("img/item3.jpg");
@@ -519,6 +528,89 @@ body {
 .bg4 {
   background-image: url("img/item4.jpg");
 }
+
+.color-options {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+  margin-left: 14px;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--clr);
+  border: 2px solid rgba(0,0,0,0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.color-dot:hover {
+  transform: scale(1.12);
+}
+
+.color-dot.active {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #38bdf8;
+}
+
+.color-dot[style*="#ffffff"] {
+  border: 2px solid #d1d5db;
+}
+
+.selected-color {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  opacity: 0.85;
+}
+
+
+.cart-item-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cart-color-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.cart-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+
+/* white color fix */
+.cart-color-dot[style*="white"],
+.cart-color-dot[style*="#fff"] {
+  border: 1px solid #9ca3af;
+}
+
+.cart-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.25);
+  display: inline-block;
+}
+
+/* split circle */
+.cart-color-dot.split {
+  background: linear-gradient(
+    90deg,
+    var(--c1) 50%,
+    var(--c2) 50%
+  );
+}
+
+
 
 /* NAV CART BUTTON */
 .nav-cart {

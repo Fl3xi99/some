@@ -87,10 +87,10 @@
 
   <div class="slider-track">
     <!-- ADD / REMOVE IMAGES HERE -->
-    <img src="images/WhatsApp Image 2026-01-07 at 16.56.28 (1).jpeg" alt="">
-    <img src="images/WhatsApp Image 2026-01-07 at 16.56.28 (0).jpeg" alt="">
-    <img src="images/WhatsApp Image 2026-01-07 at 16.56.28 (2).jpeg" alt="">
-    <img src="images/WhatsApp Image 2026-01-07 at 16.56.28 (3).jpeg" alt="">
+    <img src="images/Hug2.jpeg" alt="">
+    <img src="images/Hug3.jpeg" alt="">
+    <img src="images/Hug1.jpeg" alt="">
+    <img src="images/Hug4.jpeg" alt="">
 
   </div>
 
@@ -103,23 +103,47 @@
     <div class="item-info">
       <span class="item-badge">Decoratie</span>
 
-      <h1 class="item-title">3D Koppel</h1>
+      <h1 class="item-title">“The Hug” – Tijdloze verbinding. </h1>
       <p class="item-desc">
-        Hoogwaardig, op maat gemaakt 3D-geprint object. Perfect voor decoratie,
+        <br>
+Dit abstracte beeldje van een omhelzing vangt de essentie van liefde, vriendschap en geborgenheid. Door de strakke, moderne lijnen en de bijzonder textuur is dit niet zomaar een decoratiestuk, maar een echt statement piece dat in elk interieur past.
+Het perfecte geschenk voor een huwelijk, jubileum, housewarming of simpelweg om iemand te laten weten dat je er voor hen bent. <br> <br>
+<strong>Specificaties : 
+<br>
+•	Materiaal : Hoogwaardig PLA (biologisch afbreekbaar kunststof).
+<br>
+•	Afmetingen : hoogte: 12cm - breedte: 7.5cm
+<br>
+•	Kleur : vaste kleur! bone white en latte brown.
 
-prototypes of cadeaus. Geprint met duurzame materialen en een strakke
+</strong>
 
-afwerking.
       </p>
 
-      <div class="item-price">€9,99</div>
+      <div class="item-price">€19,99</div>
+
+      <!--<div class="color-options">
+        <button class="color-dot active" style="--clr:#F9F6EE" data-color="Bone White" data-hex="#F9F6EE" aria-label="Bone White"></button>
+  <button class="color-dot" style="--clr:#a7917d" data-color="Latte Brown" data-hex="#a7917d" aria-label="Latte Brown"></button>
+</div>
+
+<p class="selected-color">Color: <span>Bone White</span></p>-->
+
 
       <button
-        class="item-cart-btn btn-wave"
-        onclick="addToCart('3D Koppel', 9.99)"
-      >
-        🛒 Toevoegen aan winkelmand
-      </button>
+  class="item-cart-btn btn-wave"
+  onclick="addToCart(
+    '3D Koppel',
+    19.00,
+    {
+      name: 'Bone White & Latte Brown',
+      hex: ['#F9F6EE', '#a7917d']
+    }
+  )"
+>
+  🛒 Toevoegen aan winkelmand
+</button>
+
     </div>
 
   </div>
@@ -163,6 +187,35 @@ afwerking.
     updateSlider();
   });
 </script>
+
+<script>
+document.querySelectorAll('.color-options').forEach(group => {
+  const label = group.nextElementSibling?.querySelector('span');
+
+  group.querySelectorAll('.color-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      group.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+
+      if (label) label.textContent = dot.dataset.color;
+    });
+  });
+});
+</script>
+
+<script>
+function getcurrentcolor() {
+  const activeDot = document.querySelector('.color-dot.active');
+  if (!activeDot) return null;
+
+  return {
+    name: activeDot.dataset.color,
+    hex: activeDot.dataset.hex 
+  };
+}
+</script>
+
+
 
 
 

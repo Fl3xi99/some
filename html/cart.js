@@ -15,11 +15,23 @@ function updateCartCount() {
 }
 
 // ADD TO CART
-function addToCart(name, price) {
-  cart.push({ name, price });
+function addToCart(name, price, color) {
+  if (!color || !color.name || !color.hex) {
+    alert("Kies eerst een kleur!");
+    return;
+  }
+
+  cart.push({
+    name,
+    price,
+    colorName: color.name,
+    colorHex: color.hex
+  });
+
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  console.log("Added to cart:", name);
+
+  console.log("Added to cart:", name, color.name, color.hex);
 }
 
 // OPTIONAL: cart button click (debug / later cart page)
