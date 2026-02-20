@@ -104,8 +104,16 @@
           <!--<h1>hallow</h1>-->
           <h1>Collection</h1>
 
+          <div class="filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="easter">Easter</button>
+  <button class="filter-btn" data-filter="valentines">Valentines</button>
+  <button class="filter-btn" data-filter="multicolor">Multi Color</button>
+  <button class="filter-btn" data-filter="onecolor">One Color</button>
+</div>
+
           <div class="container">
-  <a href="item1.html" class="card bg1">
+  <a href="item1.html" class="card bg1" data-category="valentines onecolor">
     <span class="title">The Hug</span>
     <span class="cost">€19.99</span>
     <div class="color-options">
@@ -174,5 +182,6 @@
       </footer>
     </main>
     <script src="cart.js"></script>
+    <script src="filter.js"></script>
   </body>
 </html>

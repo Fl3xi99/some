@@ -442,7 +442,11 @@ body {
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  /* 🔥 THIS IS THE FIX */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 220px));
+
+  justify-content: start; /* keeps cards aligned left */
   gap: 16px;
 }
 
@@ -1014,6 +1018,33 @@ body {
 }
 .hidden {
   display: none;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 25px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: #ddd;
+}
+
+.filter-btn.active {
+  background: black;
+  color: white;
 }
 
 
