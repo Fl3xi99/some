@@ -276,10 +276,21 @@ body {
   background-color: var(--whitecolor);
 }
 
+.hero-container {
+  position: relative; /* Dit is het ankerpunt voor de span en button */
+  width: 1050px;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
 .hero-img {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
+
+  object-fit: cover;
 
   height: 500px;
   width: 1050px;
@@ -295,8 +306,8 @@ body {
 }
 .hero-span {
   position: absolute;
-  bottom: -50px;
-  left: 140px;
+   bottom: 70px;
+  left: 20px;
   z-index: 1;
   font-size: 25px;
   font-weight: 600;
@@ -304,8 +315,8 @@ body {
 }
 .hero-button {
   position: absolute;
-  bottom: -120px;
-  left: 140px;
+  bottom: 20px;
+  left: 20px;
   z-index: 1;
   font-size: 25px;
   font-weight: 600;
@@ -314,35 +325,30 @@ body {
 
 
 
- @media (max-width: 900px) {
-  .hero2 {
-    width: 100%;
-    max-width: 550px;
-    margin: 0 auto;
-    margin-top: 40px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  
-    background-color: var(--whitecolor);
+@media (max-width: 900px) {
+  .hero-container {
+    width: 100%;    /* Geen 1050px meer op mobiel */
+    height: 300px;  /* Match de hoogte van je img */
   }
+
   .hero-img {
     height: 300px;
     width: 100%;
+    object-fit: cover;
   }
+
   .hero-span {
     font-size: 18px;
-    left: 35px;
-    bottom: 330px;
+    bottom: 70px;
+    left: 20px;
   }
-    .hero-button {
-      font-size: 18px;
-      left: 40px;
-      bottom: 270px;
-    }
 
- }
+  .hero-button {
+    font-size: 18px;
+    bottom: 20px;
+    left: 20px;
+  }
+}
 
 
 
@@ -1030,20 +1036,28 @@ body {
 
 .filter-btn {
   padding: 0.6rem 1.2rem;
-  border: none;
-  cursor: pointer;
   background: #eee;
   border-radius: 25px;
   transition: 0.3s;
-  font-weight: 500;
+
+  width: fit-content;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ecfdf5;
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.35);
 }
 
 .filter-btn:hover {
-  background: #ddd;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
 }
 
 .filter-btn.active {
-  background: black;
+  background: linear-gradient(135deg, #16a34a, #15803d);
+
   color: white;
 }
 
