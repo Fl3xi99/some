@@ -14,7 +14,7 @@
     <link rel="manifest" href="images/site.webmanifest" />
   </head>
 
-  <body style="margin:0; min-height:100vh;">
+  <body>
 
     <div id="loading-screen">
       <div class="loader"></div>
@@ -80,14 +80,10 @@
             <span class="cart-count" id="cartCountDesktop">0</span>
           </button>
 
-          <!-- MOBILE TOGGLE -->
-          <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-
+          <button class="nav-cart-mobile" id="cartBtnMobile" aria-label="Open winkelmand">
+              🛒
+              <span class="cart-count" id="cartCountMobile">0</span>
+            </button>
         <!-- MOBILE MENU -->
         <div class="nav-menu-mobile" id="navMenuMobile">
           <div class="nav-menu-inner">
@@ -99,18 +95,14 @@
             </ul>
 
             <!-- MOBILE CART -->
-            <button class="nav-cart-mobile" id="cartBtnMobile" aria-label="Open winkelmand">
-              🛒
-              <span class="cart-count" id="cartCountMobile">0</span>
-            </button>
+            
           </div>
         </div>
       </nav>
 
       <!-- ================= HERO ================= -->
       <section
-        class="hero hero2" style="
-        "
+        class="hero hero2"
         <!--style="-->
           min-height: calc(100vh - 80px);
           width: 100%;
@@ -131,24 +123,40 @@
       </section>
 
       <footer>
-        
-        <p>&copy; 2026 DrieDee Studio. Alle rechten voorbehouden.</p>
-        <br>
-        <p>Volg Onze Socials!</p>
-        <br>
-        <a href="https://driedeestudio.be/index.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-          <img src="images/ttk.png" alt="tiktok link" style="height: 40px;">
-        </a>
-        <!--
-        <a href="https://driedeestudio.be/index.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-          <img src="images/Instagram-Icon.png" alt="instagram link" style="height: 40px;">
-        </a>
-      -->
-        <a href="https://driedeestudio.be/index.html" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-          <img src="images/Logo_de_Facebook.png" alt="facebook link" style="height: 40px; border-radius: 10px;">
-        </a>
-        <p>A site by Fl3xi99</p>
-      </footer>
+  <div class="footer-container">
+
+    <!-- LEFT SIDE -->
+    <div class="footer-left">
+      <ul>
+        <li><a href="#">ALGEMENE VOORWAARDEN</a></li>
+        <li><a href="#">PRIVACY BELEID</a></li>
+        <li><a href="#">TERUG BETALINGSBELEID EN VERZENDINGEN</a></li>
+      </ul>
+    </div>
+
+    <!-- CENTER SIDE -->
+    <div class="footer-center">
+      
+
+
+      <p>Volg Onze Socials!</p>
+
+      <a href="https://driedeestudio.be/index.html" target="_blank" rel="noopener noreferrer">
+        <img src="images/ttk.png" alt="tiktok link">
+      </a>
+
+      <a href="https://driedeestudio.be/index.html" target="_blank" rel="noopener noreferrer">
+        <img src="images/Logo_de_Facebook.png" alt="facebook link">
+      </a>
+
+      <p>A site by Fl3xi99</p>
+
+      <br>
+      <p>&copy; 2026 DrieDee Studio. Alle rechten voorbehouden.</p>
+    </div>
+
+  </div>
+</footer>
 
       <!-- Mobile nav toggle -->
       <script>

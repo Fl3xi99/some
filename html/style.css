@@ -4,6 +4,24 @@
   --whitecolor: rgb(241, 234, 216);
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Make the whole page a flex column */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make hero/content expand */
+.hero {
+  flex: 1;
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -376,11 +394,78 @@ body {
 }
 
 footer {
-  text-align: center;
-  padding: 1rem;
+  margin-top: 50px;
+  padding: 3rem;
   background: var(--maincolor);
   color: var(--whitecolor);
-  margin-top: 50px;
+  position: relative;
+}
+
+/* FOOTER CONTAINER */
+.footer-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* LEFT LIST */
+.footer-left {
+  flex: 1;
+}
+
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-left li {
+  margin-bottom: 10px;
+}
+
+.footer-left a {
+  text-decoration: none;
+  color: var(--whitecolor);
+  font-size: 14px;
+}
+
+.footer-left a:hover {
+  text-decoration: underline;
+}
+
+/* CENTER CONTENT */
+.footer-center {
+  position: absolute; /* center in container */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.footer-center img {
+  height: 40px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+/* RESPONSIVE FIX */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-center {
+    position: static; /* remove absolute positioning on mobile */
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .footer-left {
+    flex: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 .collection-toggle {
@@ -1061,5 +1146,20 @@ body {
   color: white;
 }
 
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
 
 
